@@ -1,0 +1,155 @@
+.board-column {
+  background-color: var(--color-bg-column);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  min-width: var(--column-min-width);
+  max-width: var(--column-max-width);
+  width: 100%;
+  max-height: calc(100vh - 180px);
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    min-width: 280px;
+    max-width: 340px;
+    max-height: calc(100vh - 220px);
+  }
+
+  @media (max-width: 390px) {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  @media (forced-colors: active) {
+    border: 2px solid CanvasText;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-4);
+    border-bottom: 1px solid var(--color-gray-200);
+    background-color: #ffffff;
+  }
+
+  &__title-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+  }
+
+  &__title {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--color-gray-800);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+  }
+
+  &__tasks {
+    padding: var(--spacing-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    overflow-y: auto;
+    flex: 1;
+    min-height: 140px;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--color-gray-300);
+      border-radius: var(--radius-full);
+    }
+  }
+}
+
+.color-accent {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.count-badge {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-700);
+
+  &--wip-warning {
+    background-color: var(--color-warning-50);
+    color: var(--color-warning-600);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+  }
+
+  &--wip-exceeded {
+    background-color: var(--color-error-50);
+    color: var(--color-error-600);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+  }
+}
+
+.add-task-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  color: var(--color-gray-500);
+  background-color: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    color: var(--color-primary-600);
+    border-color: var(--color-primary-300);
+    background-color: var(--color-primary-50);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary-500);
+    outline-offset: 2px;
+  }
+
+  @media (forced-colors: active) {
+    border: 1px solid ButtonBorder;
+    color: ButtonText;
+  }
+}
+
+.empty-dropzone {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-drag-wrapper {
+  display: block;
+}
+
+.task-drag-placeholder {
+  min-height: 84px;
+  background-color: var(--color-primary-50);
+  border: 2px dashed var(--color-primary-300);
+  border-radius: var(--radius-lg);
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.board-column__tasks.cdk-drop-list-dragging .task-drag-wrapper:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

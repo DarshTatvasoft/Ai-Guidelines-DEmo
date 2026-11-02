@@ -1,0 +1,110 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-base);
+  font-weight: 500;
+  line-height: 1;
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+
+  &__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background-color: currentColor;
+    margin-right: 6px;
+    flex-shrink: 0;
+  }
+
+  // Sizes
+  &--sm {
+    font-size: var(--font-size-xs);
+    padding: 2px 8px;
+    gap: 4px;
+
+    .badge__dot {
+      width: 5px;
+      height: 5px;
+      margin-right: 4px;
+    }
+  }
+
+  &--md {
+    font-size: var(--font-size-sm);
+    padding: 3px 10px;
+    gap: 6px;
+  }
+
+  &--lg {
+    font-size: var(--font-size-base);
+    padding: 4px 12px;
+    gap: 8px;
+  }
+
+  // Variants — Priority
+  &--priority-low {
+    background-color: var(--color-success-50);
+    color: var(--color-priority-low);
+    border-color: rgba(16, 185, 129, 0.25);
+  }
+
+  &--priority-medium {
+    background-color: var(--color-warning-50);
+    color: var(--color-priority-medium);
+    border-color: rgba(245, 158, 11, 0.25);
+  }
+
+  &--priority-high {
+    background-color: rgba(249, 115, 22, 0.1);
+    color: var(--color-priority-high);
+    border-color: rgba(249, 115, 22, 0.25);
+  }
+
+  &--priority-urgent {
+    background-color: var(--color-error-50);
+    color: var(--color-priority-urgent);
+    border-color: rgba(239, 68, 68, 0.3);
+    font-weight: 600;
+  }
+
+  // Variants — Semantic & Default
+  &--default {
+    background-color: var(--color-gray-100);
+    color: var(--color-gray-700);
+    border-color: var(--color-gray-200);
+  }
+
+  &--primary {
+    background-color: var(--color-primary-50);
+    color: var(--color-primary-600);
+    border-color: var(--color-primary-200);
+  }
+
+  &--success {
+    background-color: var(--color-success-50);
+    color: var(--color-success-600);
+    border-color: rgba(16, 185, 129, 0.25);
+  }
+
+  &--warning {
+    background-color: var(--color-warning-50);
+    color: var(--color-warning-600);
+    border-color: rgba(245, 158, 11, 0.25);
+  }
+
+  &--danger {
+    background-color: var(--color-error-50);
+    color: var(--color-error-600);
+    border-color: rgba(239, 68, 68, 0.25);
+  }
+
+  &--info {
+    background-color: var(--color-info-50);
+    color: var(--color-info-600);
+    border-color: rgba(59, 130, 246, 0.25);
+  }
+}
+
